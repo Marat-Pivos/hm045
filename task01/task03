@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+#define NUMBER 3
+
+int main() {
+	srand(time(0));
+	int vector[NUMBER];
+
+	bool mirror = true;
+
+	for (int i = 0;i < NUMBER;i++) {
+		vector[i] = rand() % 100 + 1;
+		cout << vector[i] << " ";
+	}
+
+	for (int i = 0;i < NUMBER;i++) {
+		for (int a = i + 1;a < NUMBER;a++) {
+			for (int b = i - 1;b > NUMBER;a++) {
+				if (vector[b] == vector[a]) {
+					mirror = false;break;
+				}
+			}
+		}
+	}
+
+	cout << (mirror ? "vector is mirror" : "vector isnt mirror") << endl;
+
+}
